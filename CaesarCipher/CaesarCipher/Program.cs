@@ -11,13 +11,31 @@ namespace CaesarCipher
         static void Main(string[] args)
         {
 
-            string encryptedMessage = EncryptMessage(InputMessageToChar(), 3);
-            Console.WriteLine(encryptedMessage);
+            Menu();
 
-            string decryptedsecretMessage = DecryptMessage(InputMessageToChar(), 3);
-            Console.WriteLine(decryptedsecretMessage);
+        }
+
+        static void Menu()
+        {
+            Console.WriteLine("***********Choose one of the following actions (options 1-2): ***********");
+            Console.WriteLine("1 - Encrypt a message");
+            Console.WriteLine("2 - Decrypt a message \n ");
+
+            string option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    string encryptedMessage = EncryptMessage(InputMessageToChar(), 3);
+                    Console.WriteLine(encryptedMessage);
+                    break;
+                case "2":
+                    string decryptedsecretMessage = DecryptMessage(InputMessageToChar(), 3);
+                    Console.WriteLine(decryptedsecretMessage);
+                    break;
 
 
+            }
         }
 
         static char[] InputMessageToChar()
@@ -26,7 +44,7 @@ namespace CaesarCipher
 
             Console.WriteLine("Please enter the secret message: ");
             message = Console.ReadLine().ToLower();
-            
+
 
             return message.ToCharArray();
         }
